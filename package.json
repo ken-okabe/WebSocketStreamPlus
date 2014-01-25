@@ -1,0 +1,28 @@
+{
+  "name": "WebSocketStreamPlus",
+  "version": "1.0.0",
+  "description": "WebSocket Stream on Node, Browser(PC+iPhone) and AndroidWebView(4.1-4.3) ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenokabe/WebSocketStreamPlus"
+  },
+  "keywords": [
+    "WebSocket",
+    "Stream",
+    "ws",
+    "Node",
+    "Browser",
+    "Android",
+    "WebView"
+  ],
+  "author": "Ken OKABE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kenokabe/WebSocketStreamPlus/issues"
+  },
+  "homepage": "https://github.com/kenokabe/WebSocketStreamPlus"
+}
