@@ -4,7 +4,7 @@ var port = 9000;
 console.log('Server port: ' + port);
 
 var WebSocket = require('ws');
-var WebSocketStream = require('websocketstream');
+var WebSocketStream = require('WebSocketStreamPlus');
 var rpc = require('rpc-stream');
 
 var webSocketServer =
@@ -16,7 +16,6 @@ var webSocketServer =
         function(ws)
         {
             var c = new WebSocketStream(ws);
-            var f1 = null;
             c
                 .pipe(
                     rpc(
@@ -24,6 +23,7 @@ var webSocketServer =
                         hello: function(val, f) // must keep this format
                         {
                             console.log('rpc:hello is called!');
+                            f('hello');
                             f('hello');
                         },
                         hello1: function(val, f)

@@ -1,16 +1,15 @@
 'use strict';
 console.log('app.js started');
 
-if (!window.WebSocket)
+if (typeof(window) === "undefined")
 {
-    window.WebSocket = require('ws');
+    var WebSocket = require('ws');
 }
-var WebSocketStream = require('websocketstream');
-var rpc = require('rpc-stream');
-
+var WebSocketStream = require('WebSocketStreamPlus');
 var ws = new WebSocket('ws://localhost:9000');
 var c = new WebSocketStream(ws);
 
+var rpc = require('rpc-stream');
 var d = rpc();
 
 c
