@@ -5,7 +5,6 @@ console.log('Server port: ' + port);
 
 var WebSocket = require('ws');
 var WebSocketStream = require('WebSocketStreamPlus');
-var rpc = require('rpc-stream');
 
 var webSocketServer =
     new WebSocket.Server(
@@ -16,9 +15,11 @@ var webSocketServer =
         function(ws)
         {
             var c = new WebSocketStream(ws);
+            var rpc1 = require('rpc-stream');
+
             c
                 .pipe(
-                    rpc(
+                    rpc1(
                     {
                         hello: function(val, f) // must keep this format
                         {
