@@ -40,16 +40,13 @@ var webSocketServer =
                 .on('close', function()
                 {
                     console.log('c close');
-                    // ws.close();
                 })
                 .on('error', function()
                 {
                     console.log('c error');
-                    //   ws.close();
                 })
                 .on('finish', function()
                 {
                     console.log('c finish');
-                    //  ws.close();
                 });
         });
