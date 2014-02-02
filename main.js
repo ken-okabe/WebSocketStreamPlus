@@ -1,3 +1,6 @@
+/* jslint node: true */
+/* global describe, it, before, beforeEach, after, afterEach */
+
 'use strict';
 
 // WebSocket API
@@ -25,7 +28,8 @@ if (!Object.prototype.watch)
                         }, setter = function(val)
                         {
                               oldval = newval;
-                              return newval = handler.call(this, prop, oldval, val);
+                              newval = handler.call(this, prop, oldval, val);
+                              return newval;
                         };
 
                   if (delete this[prop])
@@ -163,7 +167,15 @@ var WebSocketStream = function(socket, options)
       {
             // Use empty string to represent null.
             this.write('');
-
+            socket.close();
+      });
+      this.on('close', function()
+      {
+            socket.close();
+      });
+      this.on('error', function()
+      {
+            socket.close();
       });
 };
 

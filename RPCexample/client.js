@@ -1,3 +1,6 @@
+/* jslint node: true */
+/* global describe, it, before, beforeEach, after, afterEach */
+
 'use strict';
 console.log('app.js started');
 
@@ -18,17 +21,14 @@ c
     .on('close', function()
     {
         console.log('c close');
-        ws.close();
     })
     .on('error', function()
     {
         console.log('c error');
-        ws.close();
     })
     .on('finish', function()
     {
         console.log('c finish');
-        ws.close();
     });
 
 d
@@ -44,6 +44,8 @@ d
         'JIM',
         function(err, mess)
         {
-            if (err) throw err
+            if (err) throw err;
             console.log(mess);
+
+            c.end();
         });

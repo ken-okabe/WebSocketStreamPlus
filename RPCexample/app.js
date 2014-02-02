@@ -1,3 +1,6 @@
+/* jslint node: true */
+/* global describe, it, before, beforeEach, after, afterEach */
+
 'use strict';
 
 var port = 9000;
@@ -30,23 +33,23 @@ var webSocketServer =
                         hello1: function(val, f)
                         {
                             console.log('rpc:hello1 is called!');
-                            f(null, 'hello!! ' + val)
+                            f(null, 'hello!! ' + val);
                         }
                     }))
                 .pipe(c)
                 .on('close', function()
                 {
                     console.log('c close');
-                    ws.close();
+                    // ws.close();
                 })
                 .on('error', function()
                 {
                     console.log('c error');
-                    ws.close();
+                    //   ws.close();
                 })
                 .on('finish', function()
                 {
                     console.log('c finish');
-                    ws.close();
+                    //  ws.close();
                 });
         });
